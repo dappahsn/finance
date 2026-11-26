@@ -1,0 +1,212 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary-fixed: #eed8c8;
+  --color-income-green-subtle: #e9eee4;
+  --color-inverse-primary: #e8b59b;
+  --color-on-secondary-container: #704331;
+  --color-tertiary-container: #d7ddcb;
+  --color-expense-rose-subtle: #f5e7df;
+  --color-inverse-surface: #342d28;
+  --color-text-secondary: #6d625a;
+  --color-on-tertiary-fixed: #293126;
+  --color-surface-container-highest: #e5dbd1;
+  --color-primary: #a45c43;
+  --color-on-secondary-fixed-variant: #704331;
+  --color-on-secondary: #ffffff;
+  --color-surface-variant: #e5dbd1;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-error: #ffffff;
+  --color-surface-container: #eee7df;
+  --color-on-tertiary: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-primary-container: #bc795e;
+  --color-text-primary: #302923;
+  --color-surface-container-high: #e9dfd5;
+  --color-outline: #887b70;
+  --color-on-tertiary-fixed-variant: #45503f;
+  --color-border-subtle: #e8dfd6;
+  --color-background: #f7f4ef;
+  --color-surface-canvas: #f7f4ef;
+  --color-surface-card: #fffdfa;
+  --color-surface-bright: #fffdfa;
+  --color-secondary-container: #e8d7c6;
+  --color-tertiary-fixed: #e1e6d8;
+  --color-secondary-fixed: #e8d7c6;
+  --color-income-green: #687b5b;
+  --color-primary-fixed-dim: #d5a28a;
+  --color-on-tertiary-container: #30382c;
+  --color-on-background: #302923;
+  --color-tertiary-fixed-dim: #c6d0b9;
+  --color-on-primary-fixed: #3d2117;
+  --color-expense-rose: #b66b52;
+  --color-on-primary-fixed-variant: #704331;
+  --color-on-surface: #302923;
+  --color-secondary-fixed-dim: #d6bba4;
+  --color-secondary: #80533f;
+  --color-surface-dim: #ded4ca;
+  --color-error-container: #f3d9ce;
+  --color-surface-container-low: #f2ece5;
+  --color-on-surface-variant: #62574f;
+  --color-on-primary: #fffaf5;
+  --color-surface: #f7f4ef;
+  --color-error: #a4493d;
+  --color-surface-tint: #a45c43;
+  --color-on-secondary-fixed: #3d2117;
+  --color-on-primary-container: #fff7f1;
+  --color-text-muted: #94877b;
+  --color-inverse-on-surface: #f3ece5;
+  --color-tertiary: #68745c;
+  --color-outline-variant: #d5c9bd;
+
+  /* Border Radius */
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Spacing */
+  --spacing-space-lg: 1.25rem;
+  --spacing-gutter: 1rem;
+  --spacing-space-xs: 0.5rem;
+  --spacing-space-2xl: 2rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-xl: 1.5rem;
+  --spacing-margin: 1.25rem;
+  --spacing-space-3xl: 2.5rem;
+  --spacing-space-sm: 0.75rem;
+  --spacing-space-2xs: 0.25rem;
+
+  /* Font Families */
+  --font-body-sm: "Plus Jakarta Sans", sans-serif;
+  --font-label-sm: "Plus Jakarta Sans", sans-serif;
+  --font-headline-md: "Plus Jakarta Sans", sans-serif;
+  --font-body-lg: "Plus Jakarta Sans", sans-serif;
+  --font-headline-sm: "Plus Jakarta Sans", sans-serif;
+  --font-body-lg-bold: "Plus Jakarta Sans", sans-serif;
+  --font-financial-amount-lg: "Plus Jakarta Sans", sans-serif;
+  --font-label-md: "Plus Jakarta Sans", sans-serif;
+  --font-body-md: "Plus Jakarta Sans", sans-serif;
+  --font-financial-amount-md: "Plus Jakarta Sans", sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-headline-lg: "Plus Jakarta Sans", sans-serif;
+  --font-body-md-medium: "Plus Jakarta Sans", sans-serif;
+
+  /* Font Sizes */
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 18px;
+  --text-body-sm--font-weight: 400;
+
+  --text-label-sm: 11px;
+  --text-label-sm--line-height: 16px;
+  --text-label-sm--letter-spacing: 0.04em;
+  --text-label-sm--font-weight: 700;
+
+  --text-headline-md: 22px;
+  --text-headline-md--line-height: 30px;
+  --text-headline-md--letter-spacing: -0.015em;
+  --text-headline-md--font-weight: 700;
+
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 24px;
+  --text-body-lg--font-weight: 400;
+
+  --text-headline-sm: 18px;
+  --text-headline-sm--line-height: 26px;
+  --text-headline-sm--letter-spacing: -0.01em;
+  --text-headline-sm--font-weight: 600;
+
+  --text-body-lg-bold: 16px;
+  --text-body-lg-bold--line-height: 24px;
+  --text-body-lg-bold--font-weight: 600;
+
+  --text-financial-amount-lg: 30px;
+  --text-financial-amount-lg--line-height: 38px;
+  --text-financial-amount-lg--letter-spacing: -0.02em;
+  --text-financial-amount-lg--font-weight: 700;
+
+  --text-label-md: 13px;
+  --text-label-md--line-height: 18px;
+  --text-label-md--letter-spacing: 0.01em;
+  --text-label-md--font-weight: 600;
+
+  --text-body-md: 14px;
+  --text-body-md--line-height: 20px;
+  --text-body-md--font-weight: 400;
+
+  --text-financial-amount-md: 18px;
+  --text-financial-amount-md--line-height: 24px;
+  --text-financial-amount-md--font-weight: 600;
+
+  --text-display: 36px;
+  --text-display--line-height: 44px;
+  --text-display--letter-spacing: -0.03em;
+  --text-display--font-weight: 800;
+
+  --text-headline-lg: 28px;
+  --text-headline-lg--line-height: 36px;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 700;
+
+  --text-body-md-medium: 14px;
+  --text-body-md-medium--line-height: 20px;
+  --text-body-md-medium--font-weight: 500;
+}
+
+@layer base {
+  .material-symbols-outlined {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 1em;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  html,
+  body {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f4ef;
+  }
+
+  body {
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+@layer components {
+  .icon-tile {
+    display: grid;
+    place-items: center;
+  }
+}
+
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+.pt-safe {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
