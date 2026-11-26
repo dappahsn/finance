@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AccountPage from './components/AccountPage';
 import { CashflowOverviewCard } from './components/CashflowOverviewCard';
 import BudgetPage from './components/BudgetPage';
@@ -11,6 +11,7 @@ import {
   CATEGORY_CHIPS,
   PERIOD_TABS,
 } from './data/transactionFilters';
+import { requestAuth, type AuthUser } from './lib/auth';
 import type {
   CategoryFilterId,
   NavTabId,
@@ -19,6 +20,9 @@ import type {
 } from './types/finance';
 
 export function App() {
+  const [user, setUser] = useState<AuthUser | null>(null);
+  const [isLoadingSession, setIsLoadingSession] = useState(true);
+  const [sessionError, setSessionError] = useState('');
   const [activeTab, setActiveTab] = useState<NavTabId>('beranda');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedPeriod, setSelectedPeriod] =
@@ -27,6 +31,63 @@ export function App() {
     useState<CategoryFilterId>('all');
   const [selectedTransaction, setSelectedTransaction] =
     useState<TransactionItem | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+    void requestAuth('session')
+      .then((result) => {
+        if (!isMounted) return;
+        setUser(result.user ?? null);
+      })
+      .catch((error: unknown) => {
+        if (!isMounted) return;
+        setSessionError(
+          error instanceof Error
+            ? error.message
+            : 'Tidak dapat menghubungi server API.',
+        );
+      })
+      .finally(() => {
+        if (isMounted) {
+          setIsLoadingSession(false);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const handleUserChange = (nextUser: AuthUser | null) => {
+    setUser(nextUser);
+    setSessionError('');
+    setActiveTab('beranda');
+    setSelectedTransaction(null);
+  };
+
+  if (isLoadingSession) {
+    return (
+      <main className="flex min-h-screen w-full items-center justify-center bg-surface px-margin">
+        <div aria-label="Memuat sesi akun" role="status">
+          <span className="material-symbols-outlined animate-spin text-3xl text-primary">
+            progress_activity
+          </span>
+        </div>
+      </main>
+    );
+  }
+
+  if (!user) {
+    return (
+      <main className="flex min-h-screen w-full flex-col justify-center overflow-x-hidden bg-surface px-margin py-8">
+        <AccountPage
+          initialError={sessionError}
+          onUserChange={handleUserChange}
+          user={null}
+        />
+      </main>
+    );
+  }
 
   return (
     <>
@@ -56,7 +117,7 @@ export function App() {
         ) : activeTab === 'anggaran' ? (
           <BudgetPage />
         ) : (
-          <AccountPage />
+          <AccountPage onUserChange={handleUserChange} user={user} />
         )}
       </main>
       <ReceiptModal

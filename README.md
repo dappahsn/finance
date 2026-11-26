@@ -1,4 +1,4 @@
-# catat.in Finance Dashboard
+# Finance Dashboard
 
 Aplikasi dashboard keuangan dengan React, Vite, Express, dan MySQL. Saat ini backend menyediakan autentikasi sign up/sign in; data transaksi dan anggaran belum terhubung ke database.
 

@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderProps> = ({
       <div className="h-16 px-margin flex items-center justify-between gap-space-sm">
         <div className="flex items-center gap-space-sm">
           <span className="font-headline-sm text-headline-sm text-text-primary tracking-tight">
-            catat.in
+            finance
           </span>
         </div>
         <Navbar activeTab={activeTab} onSelectTab={onSelectTab} />
